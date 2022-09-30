@@ -1,3 +1,5 @@
 .idea
 *.db
 files/
+*.txt
+.deta

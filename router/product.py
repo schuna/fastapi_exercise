@@ -11,6 +11,11 @@ router = APIRouter(
 products = ['watch', 'camera', 'phone']
 
 
+async def time_consuming_task():
+    import time
+    time.sleep(5)
+
+
 @router.post("/new")
 def create_product(name: str = Form(...)):
     products.append(name)
@@ -18,8 +23,9 @@ def create_product(name: str = Form(...)):
 
 
 @router.get('/all')
-def get_all_products():
+async def get_all_products():
     # return products
+    await time_consuming_task()
     data = " ".join(products)
     response = Response(content=data, media_type="text/plain")
     response.set_cookie(key="test_cookie", value="test_cookie_value")
