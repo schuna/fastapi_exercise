@@ -4,6 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.requests import Request
 from starlette.background import BackgroundTasks
 
+from utils import log
 from schema import ProductBase
 
 router = APIRouter(
@@ -12,11 +13,6 @@ router = APIRouter(
 )
 
 templates = Jinja2Templates(directory='templates')
-
-
-def log(tag="", message=""):
-    with open("log.txt", mode="w+") as log:
-        log.write(f"{tag}: {message}\n")
 
 
 def log_template_call(message: str):

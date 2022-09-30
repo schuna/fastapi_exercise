@@ -11,3 +11,4 @@ pytest
 requests
 jinja2
 websockets
+pyteesseract
